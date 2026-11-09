@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://fixwhat.dev/schemas/MaintenanceHistorySchema.json",
+  "title": "FixWhat Maintenance History Record Contract",
+  "description": "Persistence schema for cross-session equipment maintenance history logs on Snap Spectacles.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "applianceId",
+    "procedureId",
+    "executionMode",
+    "sessionTimestamp",
+    "status",
+    "stepsCompleted",
+    "totalSteps",
+    "safetyBarriersAcknowledged",
+    "completionVerification"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^rec_[a-z0-9_-]+$"
+    },
+    "applianceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "procedureId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "executionMode": {
+      "type": "string",
+      "enum": [
+        "REPAIR",
+        "TRAINING"
+      ]
+    },
+    "sessionTimestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "COMPLETED",
+        "ABORTED",
+        "FAILED_SAFETY_CHECK"
+      ]
+    },
+    "stepsCompleted": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "totalSteps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "safetyBarriersAcknowledged": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completionVerification": {
+      "type": "object",
+      "required": [
+        "verified",
+        "userConfirmedSafety"
+      ],
+      "properties": {
+        "verified": {
+          "type": "boolean"
+        },
+        "userConfirmedSafety": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

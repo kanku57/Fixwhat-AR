@@ -1,0 +1,298 @@
+{
+  "$schema": "https://fixwhat.dev/schemas/ManualSchema.json",
+  "schemaVersion": "1.0.0",
+  "manualId": "manual_ge_33709_remote_setup",
+  "appliance": {
+    "manufacturer": "Jasco Products Company LLC (GE Licensee)",
+    "modelFamily": "GE 33709 4-Device Universal Remote Series",
+    "compatibleModels": [
+      "33709",
+      "33711"
+    ],
+    "category": "Universal Remote Control"
+  },
+  "sourceDocument": {
+    "title": "GE 4-Device Universal Remote Instruction Manual & Code List (Models 33709 & 33711)",
+    "publisher": "Jasco Products Company LLC",
+    "documentCode": "33709_33711_Manual_Rev_11-19",
+    "url": "https://byjasco.com/pages/universal-remote-codes",
+    "accessDate": "2026-10-28",
+    "verificationStatus": "VERIFIED_MANUFACTURER_SOURCE"
+  },
+  "procedure": {
+    "procedureId": "proc_ge_33709_battery_and_tv_setup",
+    "title": "GE 33709 Battery Installation & TV Setup Procedure",
+    "taskType": "SETUP",
+    "estimatedTimeMinutes": 5,
+    "prerequisites": [
+      "Two fresh AAA alkaline batteries (do not mix chemistries or ages)",
+      "Target television powered on manually via front/side physical power switch",
+      "Line-of-sight view to television front panel infrared receiver",
+      "Clear workspace surface to prevent dropping small battery door"
+    ],
+    "requiredTools": [
+      {
+        "toolId": "tool_remote_body",
+        "name": "GE 33709 Remote Unit",
+        "specification": "4-Device Universal Remote with slide-off battery door",
+        "isConsumable": false
+      },
+      {
+        "toolId": "tool_aaa_batteries",
+        "name": "AAA Alkaline Batteries",
+        "specification": "Two 1.5V AAA cells (Alkaline recommended; do not mix chemistries)",
+        "isConsumable": true
+      }
+    ],
+    "phases": [
+      {
+        "phaseIndex": 0,
+        "title": "Battery Compartment Inspection & Removal",
+        "description": "Locate textured release indent and slide off battery door."
+      },
+      {
+        "phaseIndex": 1,
+        "title": "Battery Polarity Verification & Insertion",
+        "description": "Install two fresh AAA batteries observing reverse-parallel polarity markings."
+      },
+      {
+        "phaseIndex": 2,
+        "title": "Television Pairing via Direct Code Entry",
+        "description": "Enter TV setup mode, select TV bank, and enter 4-digit pairing code."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "step_remote_open_battery_door",
+        "stepIndex": 0,
+        "phaseIndex": 0,
+        "title": "Pull Down Textured Indent and Slide Off Battery Cover",
+        "instructionText": "Turn the remote over so the keypad faces down. Locate the textured indent on the rear of the remote. Firmly pull down on the textured surface and slide the battery cover downward to expose the battery compartment.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "1. Battery Installation",
+          "pageNumber": 2,
+          "diagramReference": "Fig. 1",
+          "exactExcerpt": "On the back of the remote, pull down on the textured surface and slide the battery cover downward to remove it."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The battery door uses an interference friction clip. Pulling firmly downward prevents snapping the retention tab.",
+          "componentInvolved": "Plastic battery door retaining clip",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": "In which direction should the battery door slide during removal?"
+        }
+      },
+      {
+        "stepId": "step_remote_inspect_polarity_markings",
+        "stepIndex": 1,
+        "phaseIndex": 1,
+        "title": "Inspect Molded Polarity Markings and Battery Precautions",
+        "instructionText": "Examine the molded (+) and (-) symbols inside the battery compartment. Note that the left slot has its coiled spring terminal at the top, while the right slot has its coiled spring terminal at the bottom.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Battery Precautions: Do not mix old and new batteries. Do not mix alkaline, standard (carbon-zinc) or rechargeable batteries. Always insert batteries with correct polarity alignment.",
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "1. Battery Installation - Battery Precautions",
+          "pageNumber": 2,
+          "diagramReference": "Fig. 2",
+          "exactExcerpt": "Battery Precautions: Do not mix old and new batteries. Do not mix alkaline, standard (carbon-zinc) or rechargeable batteries."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Reverse battery installation can damage internal CMOS logic and cause electrolytic leakage. Coiled spring contacts always accommodate the flat negative (-) battery terminal.",
+          "componentInvolved": "Molded polarity relief and coiled compression spring contacts",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": "Which battery terminal always aligns with the coiled spring contact?"
+        }
+      },
+      {
+        "stepId": "step_remote_insert_battery_left",
+        "stepIndex": 2,
+        "phaseIndex": 1,
+        "title": "Install First AAA Battery (Slot A, Left / Negative on Spring)",
+        "instructionText": "Take the first AAA alkaline battery. Align its flat negative (-) terminal against the spring contact at the top of the left slot (Slot A), compress the spring slightly, and push the protruding positive (+) button terminal down into place.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body",
+          "tool_aaa_batteries"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "1. Battery Installation",
+          "pageNumber": 2,
+          "diagramReference": "Fig. 2",
+          "exactExcerpt": "Match the positive (+) and negative (-) marks on two (2) new AAA alkaline batteries to the corresponding (+) and (-) marks inside the battery compartment."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Compressing the spring first prevents tearing the battery insulation wrapper against the contact housing.",
+          "componentInvolved": "Slot A top spring contact",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": null
+        }
+      },
+      {
+        "stepId": "step_remote_insert_battery_right",
+        "stepIndex": 3,
+        "phaseIndex": 1,
+        "title": "Install Second AAA Battery (Slot B, Right / Reverse-Parallel Orientation)",
+        "instructionText": "Take the second AAA alkaline battery. Insert it into the right slot (Slot B) in opposite orientation: align the flat negative (-) terminal against the spring at the bottom of the slot, compress the spring, and snap the positive (+) terminal down at the top.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Reverse-Parallel Orientation: Battery 2 must face the opposite direction of Battery 1. Confirm both cells match their respective embossed markings.",
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body",
+          "tool_aaa_batteries"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "1. Battery Installation",
+          "pageNumber": 2,
+          "diagramReference": "Fig. 2",
+          "exactExcerpt": "Insert the fresh AAA batteries into the compartment, ensuring correct polarity alignment."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The series electrical circuit connects the positive terminal of Cell 1 to the negative terminal of Cell 2, summing two 1.5V cells to provide the 3.0V required by the microcontroller and infrared emitter diode.",
+          "componentInvolved": "Series connection jumper and PCB power rail",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": "Why are the two AAA batteries oriented in opposite directions?"
+        }
+      },
+      {
+        "stepId": "step_remote_replace_door",
+        "stepIndex": 4,
+        "phaseIndex": 1,
+        "title": "Align and Slide Battery Cover Closed",
+        "instructionText": "Position the battery cover slightly below the compartment opening, align the side rails, and push upward until the latch clicks securely into the locked position.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "1. Battery Installation",
+          "pageNumber": 2,
+          "diagramReference": null,
+          "exactExcerpt": "Position the battery cover slightly below the opening and push upward to lock it into place."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The cover maintains constant downward pressure on the cells, preventing intermittent battery disconnection during movement or drops.",
+          "componentInvolved": "Plastic retention latch",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": null
+        }
+      },
+      {
+        "stepId": "step_remote_enter_setup_mode",
+        "stepIndex": 5,
+        "phaseIndex": 2,
+        "title": "Press and Hold SETUP Button Until Red Indicator Stays Lit",
+        "instructionText": "On the front keypad, press and hold down the dedicated SETUP button until the red indicator light turns on and stays steadily lit (approximately 2 to 3 seconds), then release the button.",
+        "hazardLevel": "INFO",
+        "safetyNotice": "Steady Red Indicator: The red LED indicates the microcontroller has entered programming mode. If the LED blinks and turns off, re-press and hold SETUP.",
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "2. Programming Your Remote",
+          "pageNumber": 3,
+          "diagramReference": "Setup Button",
+          "exactExcerpt": "Press and hold down the SETUP button on the remote until the remote's red indicator light turns on, then release the button."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Holding SETUP triggers an interrupt on the remote's EEPROM controller, pausing normal IR command transmission and opening the code buffer register.",
+          "componentInvolved": "Microcontroller EEPROM and Red Status LED indicator",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": "What visual signal confirms the remote has entered programming mode?"
+        }
+      },
+      {
+        "stepId": "step_remote_select_tv_button",
+        "stepIndex": 6,
+        "phaseIndex": 2,
+        "title": "Press and Release the TV Device Button",
+        "instructionText": "Press and release the TV device button on the top row of the remote. The red indicator light will blink once and remain steadily illuminated.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "2. Direct Code Entry",
+          "pageNumber": 3,
+          "diagramReference": null,
+          "exactExcerpt": "Press and release the corresponding device button on the remote for the item you are setting up (e.g., TV)."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Selecting the device bank assigns subsequent 4-digit codes to the TV memory slot rather than the CBL, DVD, or AUX slots.",
+          "componentInvolved": "Device bank memory partition",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": null
+        }
+      },
+      {
+        "stepId": "step_remote_enter_code",
+        "stepIndex": 7,
+        "phaseIndex": 2,
+        "title": "Enter 4-Digit TV Code from Version-Matched Code List",
+        "instructionText": "Using the numeric keypad (0\u20139), enter the first 4-digit code listed for your TV brand from the code list booklet or Jasco online code lookup matching your remote's code library version (e.g., CL5, as indicated on the sticker inside the battery compartment). When the fourth digit is entered, the red indicator light will turn off automatically.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "2. Direct Code Entry",
+          "pageNumber": 3,
+          "diagramReference": null,
+          "exactExcerpt": "Enter the first 4-digit code listed for your device's brand from the code list. When you finish entering the 4 digits, the red indicator light will turn off."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The 4-digit code configures the infrared carrier frequency (typically 36kHz to 56kHz) and pulse-distance modulation protocol matching the TV receiver chip. Codes vary by television brand and remote code library version (CL3, CL4, CL5, or CL6), so the user must reference the code table matching their specific hardware sticker.",
+          "componentInvolved": "Infrared carrier modulation register",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": "What happens to the red indicator light when a valid 4-digit code is accepted?"
+        }
+      },
+      {
+        "stepId": "step_remote_verify_tv_operation",
+        "stepIndex": 8,
+        "phaseIndex": 2,
+        "title": "Point at TV and Test POWER and Volume",
+        "instructionText": "Point the front infrared window directly at your TV and press the POWER button. If the TV turns off, pairing is successful. Turn the TV back on and test Volume (+) and (-) buttons. If the TV does not respond, repeat with the next code listed for your brand in the Jasco code manual.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_remote_body"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "2. Direct Code Entry",
+          "pageNumber": 3,
+          "diagramReference": null,
+          "exactExcerpt": "Point the remote at your device and test several buttons (such as power, volume, or channel up/down) to see if they respond as expected."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Testing multiple button functions verifies both basic power toggle and variable duty-cycle commands across the full IR protocol map.",
+          "componentInvolved": "High-output Infrared (IR) LED emitter (940nm wavelength)",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED",
+          "knowledgeCheckQuestion": null
+        }
+      }
+    ],
+    "completionCheck": {
+      "finalCondition": "Batteries securely installed with correct polarity, cover clicked shut, red LED extinguishes after code entry, and television responds to remote commands.",
+      "safetyVerificationText": "Verify the battery cover is securely locked and the remote body feels cool to the touch (no abnormal battery heat)."
+    }
+  }
+}

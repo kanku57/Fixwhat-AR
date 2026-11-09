@@ -1,0 +1,324 @@
+{
+  "$schema": "https://fixwhat.dev/schemas/ManualSchema.json",
+  "schemaVersion": "1.0.0",
+  "manualId": "manual_delonghi_dedica_ec680",
+  "appliance": {
+    "manufacturer": "De'Longhi",
+    "modelFamily": "De'Longhi Dedica EC680 Series",
+    "compatibleModels": [
+      "EC680.M",
+      "EC680.R",
+      "EC680.BK"
+    ],
+    "category": "Pump Espresso Coffee Machine"
+  },
+  "sourceDocument": {
+    "title": "De'Longhi Dedica Instructions for Use (EC680)",
+    "publisher": "De'Longhi Appliances s.r.l.",
+    "documentCode": "5713225811_02_1117",
+    "url": "https://www.delonghi.com/en-us/manuals/dedica-deluxe-pump-espresso-machine/p/EC685M",
+    "accessDate": "2026-10-28",
+    "verificationStatus": "VERIFIED_MANUFACTURER_SOURCE"
+  },
+  "procedure": {
+    "procedureId": "proc_delonghi_ec680_descaling",
+    "title": "De'Longhi Dedica Descaling Procedure",
+    "taskType": "DESCALING",
+    "estimatedTimeMinutes": 30,
+    "prerequisites": [
+      "Orange light on the steam button is flashing, indicating machine requires descaling.",
+      "Filter holder (portafilter) is removed from the brew group.",
+      "Water softener filter (if installed in the water tank) is removed prior to adding descaling solution.",
+      "Drip tray is emptied and repositioned."
+    ],
+    "requiredTools": [
+      {
+        "toolId": "tool_ecodecalk",
+        "name": "De'Longhi EcoDecalk Descaler",
+        "specification": "100 ml single dose (Level A in reservoir)",
+        "isConsumable": true
+      },
+      {
+        "toolId": "tool_water_supply",
+        "name": "Fresh Drinking Water",
+        "specification": "Approx. 2.5 litres total (1L for descaling + 2x 1L for rinse cycles)",
+        "isConsumable": true
+      },
+      {
+        "toolId": "tool_waste_container",
+        "name": "Waste Liquid Container",
+        "specification": "Minimum 1.0 litre capacity, positioned under both steam and coffee spouts",
+        "isConsumable": false
+      }
+    ],
+    "phases": [
+      {
+        "phaseIndex": 0,
+        "title": "Preparation & Chemical Dosing",
+        "description": "Safety checks, removing portafilter and water filter, dosing EcoDecalk and fresh water to MAX."
+      },
+      {
+        "phaseIndex": 1,
+        "title": "Descaling Cycle",
+        "description": "Triggering descaling mode (10s steam hold) and executing intermittent pulsed dispensing."
+      },
+      {
+        "phaseIndex": 2,
+        "title": "Rinse Cycle 1",
+        "description": "Flushing residual acidic descaling solution with 1 full tank of clean fresh water."
+      },
+      {
+        "phaseIndex": 3,
+        "title": "Rinse Cycle 2 & Recommissioning",
+        "description": "Final secondary clean water flush, clearing firmware warning, and recommissioning."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "step_prep_remove_portafilter",
+        "stepIndex": 0,
+        "phaseIndex": 0,
+        "title": "Remove Portafilter and Water Softener Filter",
+        "instructionText": "Remove the filter holder (portafilter) from the brew group. Empty the drip tray. If a water softener filter is fitted inside the water tank, remove it now.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": "Fig. 25",
+          "exactExcerpt": "Before descaling, remove the filter holder (if attached) and remove the water softener filter from the water tank (if fitted). Empty the drip tray and place it back."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Leaving the portafilter attached traps acid and degrades the brass/chrome finish. The ion-exchange resin in water softener filters is permanently degraded if exposed to acid descaler.",
+          "componentInvolved": "Brew group head, portafilter, and water softener cartridge",
+          "knowledgeCheckQuestion": "Why must the water softener filter be removed before adding descaler?",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_prep_dose_chemical",
+        "stepIndex": 1,
+        "phaseIndex": 0,
+        "title": "Pour EcoDecalk and Water into Tank",
+        "instructionText": "Pour 100 ml of De'Longhi EcoDecalk descaler into the water tank up to Level A, then add fresh drinking water up to Level B (MAX line, approx. 1 litre). Reinsert the tank firmly.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Descaler contains acids which may irritate skin and eyes. Strictly avoid contact with skin and eyes. In case of contact, rinse immediately with plenty of clean water.",
+        "isBlockingSafetyBarrier": true,
+        "requiredToolIds": [
+          "tool_ecodecalk",
+          "tool_water_supply"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": "Fig. 26",
+          "exactExcerpt": "Descaler contains acids which may irritate the skin and eyes. It is vital to respect the manufacturer's safety warnings... Pour the descaler into the tank up to the level A marked inside the tank (equal to one 100ml packet), then add water (1 litre) up to the level B."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The concentration ratio (100ml acid to ~900ml water) ensures effective dissolution of calcium carbonate scale without corroding internal thermoblock conduits.",
+          "componentInvolved": "Water reservoir and thermoblock heating element",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_prep_position_container",
+        "stepIndex": 2,
+        "phaseIndex": 0,
+        "title": "Position 1-Litre Waste Container",
+        "instructionText": "Place an empty container with a minimum capacity of 1 litre under both the hot water/steam spout and the coffee brew spouts.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_waste_container"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": "Fig. 27",
+          "exactExcerpt": "Place an empty container with a minimum capacity of 1 litre under the hot water/steam spout and coffee spouts."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Pulsed descaling expels liquid from both circuits. A container smaller than 1L will overflow, creating an acidic spill hazard.",
+          "componentInvolved": "Panarello steam wand and boiler discharge spouts",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_descale_power_on",
+        "stepIndex": 3,
+        "phaseIndex": 1,
+        "title": "Power On and Warm Up Appliance",
+        "instructionText": "Press the ON/OFF button on the side of the machine. Wait until the 1-cup and 2-cup coffee buttons remain steadily illuminated, indicating operating temperature.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": null,
+          "exactExcerpt": "Turn the machine on by pressing the ON/OFF switch. Wait until the coffee buttons are steadily lit, indicating the machine is ready."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The firmware requires the thermoblock temperature sensor (NTC) to report stable baseline pre-heat before accepting the descaling mode button combination.",
+          "componentInvolved": "Main PCB, NTC temperature sensor, and thermoblock",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_descale_enter_mode",
+        "stepIndex": 4,
+        "phaseIndex": 1,
+        "title": "Press and Hold Steam Button for 10 Seconds",
+        "instructionText": "Press and hold the STEAM button for at least 10 seconds. Release when all three button lights (1-cup, 2-cup, steam) flash sequentially in rotation.",
+        "hazardLevel": "INFO",
+        "safetyNotice": "Sequential light chase confirms descaling mode is active. If lights do not chase, release and re-hold for full 10 seconds.",
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": "Fig. 28",
+          "exactExcerpt": "Press and hold the steam button for at least 10 seconds until the three buttons flash sequentially to indicate that the appliance has entered the descaling mode."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Entering descaling mode changes the solenoid valves and pump pulse-width modulation from continuous pressure (15 bar) to intermittent 20-30 second chemical contact cycles.",
+          "componentInvolved": "Microcontroller firmware state machine",
+          "knowledgeCheckQuestion": "How do you visually verify the machine has entered descaling mode?",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_descale_open_valve",
+        "stepIndex": 5,
+        "phaseIndex": 1,
+        "title": "Open Steam Dial to Position I",
+        "instructionText": "Turn the steam dial counter-clockwise to position I. Press the steam button to begin dispensing. The machine will discharge descaling solution in intermittent pulsed intervals over 20-25 minutes.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Hot liquid and steam will be discharged intermittently. Keep hands and face clear of the steam nozzle during dispensing to avoid scalds.",
+        "isBlockingSafetyBarrier": true,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 14,
+          "diagramReference": "Fig. 29",
+          "exactExcerpt": "Turn the steam dial to the I position. Press the steam button to begin the descaling cycle. The descaling solution will be discharged at intervals from the spouts. This takes about 20-25 minutes."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Intermittent pulsed discharge allows the descaling solution to soak inside thermoblock channels and dissolve scale crust without excessive pump thermal stress.",
+          "componentInvolved": "Vibration pump (Ulka) and steam valve body",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_descale_close_valve_when_empty",
+        "stepIndex": 6,
+        "phaseIndex": 1,
+        "title": "Close Steam Dial When Tank Empties",
+        "instructionText": "When the water tank is empty, the descaling cycle stops automatically and the orange steam button flashes. Turn the steam dial back to the 0 (closed) position.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 15,
+          "diagramReference": "Fig. 30",
+          "exactExcerpt": "When the tank is completely empty, delivery ceases and the orange steam button flashes. Turn the steam dial to the 0 position."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Closing the mechanical valve signals the flow meter and reed sensor that the chemical phase is concluded, priming the state machine for the mandatory rinse phase.",
+          "componentInvolved": "Flow meter (Hall sensor) and steam valve microswitch",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_rinse1_refill_and_flush",
+        "stepIndex": 7,
+        "phaseIndex": 2,
+        "title": "Rinse Tank, Refill with Fresh Water, and Flush (Rinse 1)",
+        "instructionText": "Empty the waste container and reposition it under the spouts. Remove the water tank, rinse thoroughly with fresh water, and fill to the MAX line with clean drinking water. Reinsert tank and turn the steam dial to position I.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Hot water discharges continuously during the rinse cycle. Do not touch the nozzle or container rim.",
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [
+          "tool_water_supply",
+          "tool_waste_container"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 15,
+          "diagramReference": "Fig. 31",
+          "exactExcerpt": "Empty the container used to collect the descaler solution and reposition it under the spouts. Extract the water tank, rinse under running water, fill with fresh water up to the MAX level and put back... Turn the steam dial to the I position."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Rinse 1 purges bulk descaler acid and loosened mineral slurry from the thermoblock coil and delivery pipes.",
+          "componentInvolved": "Thermoblock internal fluid passages",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_rinse1_close_valve",
+        "stepIndex": 8,
+        "phaseIndex": 2,
+        "title": "Close Steam Dial to 0 After Rinse 1",
+        "instructionText": "When the water tank empties completely, delivery stops. Turn the steam dial back to the 0 (closed) position.",
+        "hazardLevel": "NONE",
+        "safetyNotice": null,
+        "isBlockingSafetyBarrier": false,
+        "requiredToolIds": [],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 15,
+          "diagramReference": null,
+          "exactExcerpt": "When the water tank is empty, the appliance stops delivering water. Turn the steam dial to the 0 position."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "Closing the dial registers completion of the first rinse stage in microcontroller memory.",
+          "componentInvolved": "Microcontroller rinse accumulator",
+          "knowledgeCheckQuestion": null,
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      },
+      {
+        "stepId": "step_rinse2_final_flush_and_reset",
+        "stepIndex": 9,
+        "phaseIndex": 3,
+        "title": "Execute Final Rinse 2 and Clear Descale Light",
+        "instructionText": "Empty the waste container. Refill the water tank with fresh drinking water to the MAX line. Turn the steam dial to position I. When the tank empties, turn the dial to 0. The orange steam light extinguishes and the coffee buttons illuminate steadily.",
+        "hazardLevel": "CAUTION",
+        "safetyNotice": "Continuous hot water discharge. Allow wand to cool before wiping with damp cloth.",
+        "isBlockingSafetyBarrier": true,
+        "requiredToolIds": [
+          "tool_water_supply",
+          "tool_waste_container"
+        ],
+        "sourceCitation": {
+          "sectionHeading": "13. Descaling",
+          "pageNumber": 15,
+          "diagramReference": "Fig. 32",
+          "exactExcerpt": "Repeat the rinsing process once more: fill the water tank with fresh water and turn the steam dial to the I position... When the water tank is completely empty, turn the steam dial to the 0 position. The orange steam button turns off and the coffee buttons light up steadily."
+        },
+        "trainingExplanation": {
+          "whyItMatters": "The Dedica microcontroller requires two complete tank rinses (~2 litres) to clear the non-volatile descaling warning bit. Reinstalling the portafilter and water softener filter restores normal coffee extraction.",
+          "componentInvolved": "EEPROM / Flash memory warning register",
+          "knowledgeCheckQuestion": "What visual indicator confirms descaling is fully completed and cleared by firmware?",
+          "explanationOrigin": "DOMAIN_EXPERT_INFERRED"
+        }
+      }
+    ],
+    "completionCheck": {
+      "finalCondition": "Steam button orange warning light is permanently extinguished. 1-cup and 2-cup buttons remain steadily illuminated in white, confirming normal espresso brew readiness.",
+      "safetyVerificationText": "Verify steam dial is firmly closed at position 0, waste acidic liquid has been safely disposed of, portafilter is cleaned, and water softener filter is re-installed if applicable."
+    }
+  }
+}

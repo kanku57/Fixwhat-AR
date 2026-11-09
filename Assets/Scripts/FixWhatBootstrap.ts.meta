@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/7a2c1f90-8431-4a7b-a23e-6b129841f3d1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8b3d2e01-9542-4b8c-b34f-7c230952a4e2
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8b3d2e01-9542-4b8c-b34f-7c230952a4e2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 9c4e3f12-a653-4c9d-c45a-8d341063b5f3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/9c4e3f12-a653-4c9d-c45a-8d341063b5f3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: "FixWhat? M3 Runtime Bootstrap Controller"
+  VersionMajor: 0
+  VersionMinor: 1
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 2aabbc97-0553-455b-a015-7c12918329cc
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    batteryOrientationTexture: false
+    remoteBayTexture: false
+    wireSpliceTexture: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - remoteBayTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      wireSpliceTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      batteryOrientationTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.Texture remoteBayTexture
+    - // @input Asset.Texture wireSpliceTexture
+    - // @input Asset.Texture batteryOrientationTexture
