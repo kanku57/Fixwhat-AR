@@ -92,7 +92,11 @@ The v1.0.1 release patch touches strictly the authorized documentation, licensin
 
 ## 6. Git Publication & Verification Audit Trail
 
-*(Execution parameters, commit hash, and remote verification details will be recorded upon push execution).*
 - **Commit Message:** `docs: reconcile FixWhat? AR v1.0.1 for competition submission`
 - **Target Branch:** `main`
 - **Remote:** `https://github.com/kanku57/Fixwhat-AR.git`
+- **Original Release Commit (FW-08):** `8d111d392abc1a6f9b0641dc54fc1993e9c39148` (authored under preliminary email `41878724+kanku57@users.noreply.github.com`)
+- **Reconstructed Commit (FW-09):** `385834acb5104ceb11a1b674b35bcc02b33d5068` (authored under verified email `241878724+kanku57@users.noreply.github.com`)
+- **Published Tree Hash:** `bfdd00953f9fae0e9d573cd424e3d5dab05e4e63` (identical byte-for-byte)
+- **Publication Status:** **PUBLISHED & VERIFIED ON GITHUB** (HTTP 200, 100% attributed to `kanku57`).
+

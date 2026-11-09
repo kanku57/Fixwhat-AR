@@ -11,6 +11,36 @@ This project adheres to strict evidence-based milestone tracking.
 
 ---
 
+## [1.0.2] - 2026-11-09 (Milestone FW-09: Public Identity Correction & Final Submission Integrity)
+### Completed by Principal Software Architect & Technical Lead with CLAD
+- **Phase A (Forensic Identity Audit):**
+  - Audited GitHub authenticated user session (`gh auth status`, `gh api user`) and identified numeric user ID discrepancy: erroneous ID `41878724` resolved on GitHub to user `ErsinDOGDU`.
+  - Discovered true immutable GitHub user ID for account `kanku57`: **`241878724`** (missing leading digit `2`).
+  - Formulated verified privacy noreply email: `241878724+kanku57@users.noreply.github.com`.
+  - Authored `docs/FW-09_IDENTITY_FORENSIC_AUDIT.md`.
+- **Phase B (History Backup & Preservation):**
+  - Created local rollback branch `refs/heads/backup/v1.0.1-remote-main` pointing to `8d111d392abc1a6f9b0641dc54fc1993e9c39148`.
+  - Created immutable snapshot tag `refs/tags/backup/v1.0.1` pointing to `8d111d392abc1a6f9b0641dc54fc1993e9c39148`.
+  - Preserved original 5-commit local development history on `archive/local-history` (`49bdd7a`).
+  - Authored `docs/FW-09_GIT_HISTORY_BACKUP_REPORT.md` with emergency rollback runbook.
+- **Phase C (Controlled History Reconstruction):**
+  - Reconfigured local Git repository identity:
+    `git config --local user.name "kanku57"`
+    `git config --local user.email "241878724+kanku57@users.noreply.github.com"`
+  - Reconstructed initial release root commit `7171839c9b83ad6e6a4c9501aaa44e91f13e8826` with exact tree `b91051cd2c78812cb74d624b741962c7cdcbb669` and zero parents.
+  - Reconstructed v1.0.1 patch commit `385834acb5104ceb11a1b674b35bcc02b33d5068` with exact tree `bfdd00953f9fae0e9d573cd424e3d5dab05e4e63` on top of `7171839`.
+  - Verified 100% tree identity: `git diff main backup/v1.0.1-remote-main` returned zero lines changed.
+- **Phase D (Remote Publication & Live Attribution Verification):**
+  - Pushed reconstructed `main` to `origin/main` via `git push --force-with-lease origin main`.
+  - Queried live GitHub commit API: confirmed author and committer resolve to `kanku57` (`https://avatars.githubusercontent.com/u/241878724?v=4`).
+  - Eliminated `ErsinDOGDU` attribution completely from the GitHub repository graph.
+  - Authored `docs/FW-09_GITHUB_ATTRIBUTION_VERIFICATION.md`.
+- **Phase E & F (Licensing & Documentation Reconciliation):**
+  - Expanded `THIRD_PARTY_NOTICES.md` with the full 9-section canonical text of Apache License, Version 2.0 for Google Material Design Icons.
+  - Reconciled `docs/FW-08_SUBMISSION_PATCH_REPORT.md`, `docs/PROJECT_STATE.md`, and `docs/CHANGELOG.md`.
+
+---
+
 ## [1.0.1] - 2026-11-09 (Milestone FW-08: Submission Patch v1.0.1 & Devpost Readiness)
 ### Completed by Principal Software Architect & Technical Lead with CLAD
 - **Phase A (MIT License Implementation):**
