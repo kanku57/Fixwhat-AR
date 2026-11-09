@@ -50,7 +50,7 @@ FixWhat? AR projects an interactive, ergonomic spatial guidance HUD into the use
 
 ## 3. Technology Stack
 
-- **Authoring Environment:** Lens Studio 5.24.1 (v5.24.1.25030402)
+- **Authoring Environment:** Lens Studio 5.24.1 (Build 5.24.1.26100516)
 - **Target OS:** Spectacles OS / SPECS 27 API
 - **Interaction Framework:** Spectacles Interaction Kit (SIK) 2.0
 - **User Interface Framework:** Spectacles UI Kit 2.0 (`BackPlate`, `Frame`, `FlexLayout`, `Button`)
@@ -78,27 +78,42 @@ To ensure absolute engineering integrity and compliance with competition guideli
 ## 5. Repository Structure
 
 ```text
-FixWhat/
+Fixwhat-AR/
+├── LICENSE                                # Canonical MIT License
+├── THIRD_PARTY_NOTICES.md                 # Third-party notices (Google Material Icons, Snap, NASA, Weller, Jasco)
 ├── README.md                              # This authoritative project document
 ├── ROADMAP.md                             # Milestone tracking and project governance ledger
-├── AGENTS.md                              # Multi-agent coordination and architectural rules
-├── Fixwhat.esproj                         # Lens Studio project manifest
+├── Fixwhat.esproj                         # Lens Studio 5.24.1 project manifest
 ├── Assets/
-│   ├── Scripts/                           # Modular TypeScript application source
-│   │   ├── GlassDesignTokens.ts           # Authoritative design tokens (colors, sizing, padding)
-│   │   ├── FixWhatRuntime.ts              # Main lifecycle coordinator and state orchestrator
-│   │   ├── FixWhatInitPanel.ts            # High-contrast initialization banner & progress bar
-│   │   ├── FixWhatWelcomeModal.ts         # Experience gateway and mode selection
-│   │   ├── FixWhatMentorPanel.ts          # Core 3-column procedural repair HUD
-│   │   ├── FixWhatSafetyBarrier.ts        # Non-bypassable hazardous step safety gate
-│   │   ├── FixWhatObjectFinder.ts         # Spatial object finding and workbench placement
-│   │   ├── FixWhatModelSelector.ts        # Supported appliance catalogue selector
-│   │   ├── FixWhatProcedureEngine.ts      # Deterministic state machine and timer manager
-│   │   └── FixWhatStepVisual.ts           # Dynamic visual diagram renderer
+│   ├── Scripts/                           # Modular TypeScript application source (ES2021)
+│   │   ├── FixWhatBootstrap.ts            # Main runtime lifecycle coordinator & state orchestrator
+│   │   ├── UI/                            # Spatial Glass UI components & design tokens
+│   │   │   ├── GlassDesignTokens.ts       # Authoritative design tokens (colors, sizing, padding)
+│   │   │   ├── FixWhatHUD.ts              # Spatial HUD anchor and viewport management
+│   │   │   ├── FixWhatInitPanel.ts        # Centered initialization banner & progress bar
+│   │   │   ├── FixWhatWelcomePanel.ts     # Experience gateway & model scope guard
+│   │   │   └── FixWhatMentorPanel.ts      # Core 3-column procedural guidance HUD & drawers
+│   │   ├── Data/                          # Procedural state store & visual registry
+│   │   │   ├── FixWhatProcedureStore.ts   # State machine, step evaluation & branch indexing
+│   │   │   ├── FixWhatVisualRegistry.ts   # Decoupled diagram texture binding registry
+│   │   │   └── ProcedureFixtures.ts       # Pre-bundled TypeScript procedural contracts
+│   │   ├── Types/                         # Strict TypeScript interface contracts
+│   │   │   └── ProcedureTypes.ts          # Core procedural, tool, hazard & visual types
+│   │   └── Tests/                         # Automated in-engine LEAF test scenarios
+│   │       ├── LeafIndex.ts               # Scenario test registry & runner index
+│   │       ├── LeafTestHelpers.ts         # LEAF assertion and async test helpers
+│   │       ├── FixWhatStartupScenario.ts  # Lifecycle boot & SIK initialization test
+│   │       ├── FixWhatGatewayScenario.ts  # Gateway transition & track selection test
+│   │       ├── FixWhatConsumerScopeScenario.ts # GE 33709 vs 33711 scope guard test
+│   │       ├── FixWhatRemoteJourneyScenario.ts # 9-step consumer remote journey test
+│   │       ├── FixWhatWorkshopSafetyScenario.ts # Step 00 blocking safety barrier test
+│   │       ├── FixWhatWorkshopJourneyScenario.ts # 11-step workshop wire splicing test
+│   │       ├── FixWhatCatalogueScenario.ts# Catalogue selection test
+│   │       └── FixWhatNavigationRecoveryScenario.ts # Rapid jump & recovery test
 │   ├── Render/                            # Custom unlit shaders and material definitions
 │   │   ├── unlit.graphShader              # High-contrast diagram shader graph
 │   │   └── StepVisualMaterial.mat         # Material instance with depth test enabled
-│   ├── Textures/Guidance/                 # 20 high-contrast procedural technical illustrations
+│   ├── Textures/Guidance/                 # 20 high-contrast procedural technical illustrations (1200x400)
 │   └── Scene.scene                        # Production scene graph hierarchy
 ├── Packages/                              # Essential Lens Studio native packages
 │   ├── SpectaclesInteractionKit 2.lspkg   # SIK 2.0 core package
@@ -108,19 +123,27 @@ FixWhat/
 │   ├── schemas/                           # JSON Schema specifications
 │   │   ├── ManualSchema.json              # Procedural step and hazard data contract
 │   │   └── MaintenanceHistorySchema.json  # Repair session history contract
-│   └── fixtures/                          # Machine-verified repair procedures
-│       ├── ge_33709_remote.json           # 9-step consumer remote repair procedure
-│       ├── workshop_wire_splicing.json    # 11-step workshop soldering procedure
-│       └── historical/                    # Historical regression validation fixtures
+│   └── procedures/                        # Machine-verified repair procedures
+│       ├── ge_33709_remote_setup.json     # 9-step consumer remote repair procedure
+│       ├── wire_soldering_splice.json     # 11-step workshop soldering procedure
+│       ├── delonghi_ec680_descaling.json  # Historical regression fixture
+│       └── delonghi_ec685_descaling.json  # Historical regression fixture
 ├── devpost/                               # Competition submission assets and metadata
+│   ├── design-brief.md                    # Authoritative Learn AR competition design brief
+│   └── submission-text.md                 # Complete Devpost form text & video script
 ├── docs/                                  # Comprehensive architectural and forensic documentation
 │   ├── PROJECT_CONSTITUTION.md            # Governing principles and non-negotiable boundaries
 │   ├── PROJECT_STATE.md                   # Single source of truth for repository state
 │   ├── ARCHITECTURE.md                    # System architecture and spatial hierarchy
+│   ├── DESIGN_GOVERNANCE.md               # CLAD spatial design and token governance
 │   ├── DECISION_LOG.md                    # Architectural Decision Records (ADRs)
 │   ├── TEST_STRATEGY.md                   # Verification and testing protocols
 │   ├── KNOWN_LIMITATIONS.md               # Registry of boundaries and constraints
-│   └── CHANGELOG.md                       # Chronological modification log
+│   ├── CHANGELOG.md                       # Chronological modification log
+│   ├── FW-05_ASSET_AND_ATTRIBUTION_REGISTER.md # Third-party IP register
+│   ├── FW-05_COMPETITION_SUBMISSION_AUDIT.md # Hackathon rubric compliance audit
+│   ├── FW-05D_PRODUCT_AND_RUNTIME_RELEASE_CLAIMS.md # Scope claim verification
+│   └── FW-05E_LIVE_RUNTIME_REVALIDATION_REPORT.md # Live runtime certification (100% pass)
 └── scripts/
     └── validate_procedure.py              # Automated 19-fixture procedure data validator
 ```
@@ -149,7 +172,7 @@ python3 scripts/validate_procedure.py
 
 ### Step 3: Open in Lens Studio
 1. Launch **Lens Studio 5.24.1**.
-2. Click **Open Project** and navigate to the cloned `fixwhat-ar` directory.
+2. Click **Open Project** and navigate to the cloned `Fixwhat-AR` directory.
 3. Select `Fixwhat.esproj` and click **Open**.
 4. Allow Lens Studio to compile TypeScript assets and resolve native package bindings.
 
@@ -236,9 +259,12 @@ FixWhat? AR relies on the following open technologies and authoritative technica
 - **NASA Workmanship Standards:** NASA-STD-8739.4 (Crimping, Interconnecting Cables, Harnesses, and Wiring), utilized strictly as an educational craftsmanship reference for high-reliability wire joining without NASA certification, endorsement, or flight qualification.
 - **Weller Tools GmbH:** Practical Soldering Guide for Electronic Assemblies.
 
+For full legal notices, copyright declarations, and terms, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 ---
 
-## 11. License
+## 11. License & Third-Party Notices
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+- **Project Source Code & Original Technical Diagrams:** Licensed under the [MIT License](LICENSE). Copyright (c) 2026 FixWhat? Contributors.
+- **Third-Party Frameworks, Icons & Reference Standards:** Retain their respective licenses and terms (including Snap Developer Terms for SIK/UIKit/LEAF, Apache 2.0 for Google Material Icons, and fair-use educational references for Jasco, NASA, and Weller). For complete details, see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 

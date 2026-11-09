@@ -5,14 +5,14 @@ status: approved
 # Design brief: FixWhat? AR
 
 ## Product Identity & Core Mission
-**FixWhat? AR** is a spatial task guidance, practical learning and verification platform that recognises the user's environment, guides real-world tasks, observes actions, evaluates available evidence and helps users reach verified outcomes.
+**FixWhat? AR** is a spatial task guidance and practical learning platform that anchors procedural workflows in the user's space, guides real-world maintenance steps, enforces learner safety declarations, and provides traceable manual citations.
 
 The platform embodies a 6-stage core intelligence progression:
-$$\text{Perception} \longrightarrow \text{Procedure Intelligence} \longrightarrow \text{Contextual Guidance} \longrightarrow \text{Action Observation} \longrightarrow \text{Evidence Verification} \longrightarrow \text{Learning \& Competency}$$
+$$\text{Perception (Spatial Proxy)} \longrightarrow \text{Procedure Intelligence (Active Schema Engine)} \longrightarrow \text{Contextual Guidance (3-Column HUD)} \longrightarrow \text{Action Confirmation (Learner Acknowledgment)} \longrightarrow \text{Verification (Schema \& LEAF Validation)} \longrightarrow \text{Learning (Why? Scaffolding)}$$
 
 FixWhat? AR spans three primary experience domains:
-1. **Consumer Remote Experience (Core MVP):** Household device maintenance, safe battery orientation, and direct TV pairing for universal remote controls (GE/Jasco 33709/33711).
-2. **Workshop Practical Learning (Core MVP):** Technical craftsmanship training for low-voltage stranded wire joining and lead-free soldering (20–24 AWG, NASA/Weller standards).
+1. **Consumer Remote Experience (Core MVP):** Household device maintenance, safe battery polarity orientation, and a 9-step direct TV code entry walkthrough for the GE 33709 remote. (Note: GE 33711 is explicitly guarded in UI as unsupported; television IR response is confirmed by the learner, not the Lens).
+2. **Workshop Practical Learning (Core MVP):** Technical craftsmanship training for low-voltage stranded wire joining and lead-free soldering (20–24 AWG, NASA/Weller educational standards).
 3. **Professional Field-Service Mode (Future Expansion — M10):** Enterprise maintenance, work order integration, equipment service histories, and supervisory sign-offs (strictly deferred post-competition).
 
 ---
@@ -25,15 +25,15 @@ The learner stands at a well-lit workbench holding two disconnected, non-energiz
 - **Why it's better than the phone or laptop version:** The learner's hands remain completely free to hold tools, wires, or the remote. They do not need to balance a phone on a crowded workbench or look away to scroll a flat manual; spatial guidance sits where the work is happening, while the mentor panel and manual reference viewer remain stable, legible, and world-anchored in room space.
 
 ## Product or overlay
-- **Type:** Overlay: it responds to something real.
-- **Intended future recognition targets (subject to technical validation):** In a future physical release, target recognition capabilities would encompass physical 20–24 AWG stranded copper wire ends, soldering iron tip/stand position, or GE/Jasco 33709/33711 universal remote controls (button keypad and battery compartment). These represent intended future engineering targets subject to technical validation, not established capabilities.
+- **Type:** Spatial Overlay: designed to contextualize physical workpieces; evaluated in simulation using high-fidelity spatial workbench proxies.
+- **Intended future recognition targets (subject to technical validation):** In a future physical release, target recognition capabilities would encompass physical 20–24 AWG stranded copper wire ends, soldering iron tip/stand position, or GE/Jasco universal remote controls. These represent intended future engineering targets subject to technical validation, not established capabilities. GE 33711 remains unsupported.
 - **Stand-in for the preview:** The Preview build remains explicitly simulated. A two-stage starter experience: A welcome screen asks "What would you like to learn today?" with two large choices (Universal Remote vs. Wire Joining Workshop). Selecting a track opens a simulated recognition scene with a "Place Workbench / Find Object" action that simulates detection, displays "Workbench ready — simulated recognition" (or "Remote identified"), and unlocks the guided mentor experience. A "Back" action allows returning to task selection.
 
 ## Where things live
 - **Where the user is looking during the main task:** Downward naturally toward the workbench, hands, and the object of interest.
 - **Work area proxy:** Sits directly in front of the learner at a comfortable arm's length (approximately 50–70 cm away).
-- **Mentor panel:** Sits slightly farther back or visually below the physical work area, world-anchored in the room so the learner can lean in, step back, or look around without it drifting. (Panel dimensions and exact vertical offset are tentative parameters refined during Preview comfort checks).
-- **Manual Source Viewer (Contextual Reference Panel):** A dedicated secondary world-anchored panel positioned adjacent to the mentor panel that displays high-contrast preprocessed manufacturer manual pages (initial proposed target resolution: $1200 \times 800$, subject to Gate 4 validation), schematics, and pinout diagrams on demand.
+- **Mentor panel:** Sits slightly farther back or visually below the physical work area, world-anchored in the room so the learner can lean in, step back, or look around without it drifting. (Panel dimensions and exact vertical offset are calibrated design tokens refined during Preview comfort checks).
+- **Manual Source Viewer (Contextual Reference Drawer & Zoom Modal):** An integrated, expandable source citation drawer (`Accordion_Source` / `📖 SRC`) and high-contrast diagram zoom modal (`View_DiagramZoom`) embedded directly within the primary spatial HUD that displays preprocessed technical vector illustrations ($1200 \times 400\text{ px}$) and authoritative manual citations on demand.
 - **Directional indicator:** A small, restrained directional arrow sits at the edge of the field of view when the mentor panel is outside the learner's view, disappearing as soon as they look back.
 
 ## Hands and input
@@ -61,16 +61,16 @@ The learner stands at a well-lit workbench holding two disconnected, non-energiz
 ---
 
 ## Manual Intelligence System (Preferred Architecture: Route D)
-To bridge physical tasks with authoritative technical documentation, FixWhat? AR incorporates a dedicated Manual Intelligence architecture approved at the architectural-direction level under **Route D (Cloud Document Ingestion and Preprocessed Delivery)**:
+To bridge physical tasks with authoritative technical documentation, FixWhat? AR incorporates a dedicated Manual Intelligence architecture approved at the architectural-direction level under **Route D (Cloud Document Ingestion and Preprocessed Delivery)**. For the competition release, the system operates on the verified **Interim Evaluation Option (Alternative 3)**: pre-bundled, schema-conforming procedural contracts (`data/procedures/*.json` and `ProcedureFixtures.ts`).
 
-1. **Three-Tier Separation of Responsibilities:**
-   - **Tier 1 — Companion Upload (Web/Mobile):** Users and educators upload manufacturer PDF manuals, manage document libraries, and associate manuals with specific hardware models (e.g. GE 33709 Rev CL5). Off-glasses execution eliminates the need for non-existent wearable file pickers.
-   - **Tier 2 — Cloud Ingestion & Preprocessing:** Cloud services validate files, execute OCR text extraction on scanned pages, extract document structure (headings, steps, tables, warnings) into schema-conforming JSON, and rasterize high-contrast, readable page image textures (initial proposed target resolution: $1200 \times 800$ PNG/JPG, subject to Gate 4 validation).
-   - **Tier 3 — Spectacles AR Delivery:** The Lens queries lightweight metadata and structured text snippets via `InternetModule.fetch()`, streams pre-rendered page textures on-demand via `RemoteMediaModule.loadResourceAsImageTexture()`, and manages active texture memory through an LRU cache (initial proposed cache size: 2–3 active pages maximum, subject to Gate 6 profiling).
-2. **Contextual Source Citations:** Guided procedure steps link directly to exact manual pages, diagrams, and section headings in the Source Viewer.
-3. **Manual-Grounded Q&A:** Learner questions are answered strictly from preprocessed manual text with explicit page citations, preventing generative hallucinations.
+1. **Three-Tier Separation of Responsibilities (Architectural Direction):**
+   - **Tier 1 — Companion Upload (Web/Mobile):** Users and educators upload manufacturer PDF manuals, manage document libraries, and associate manuals with specific hardware models (e.g. GE 33709). Off-glasses execution eliminates the need for wearable file pickers.
+   - **Tier 2 — Cloud Ingestion & Preprocessing:** Cloud services validate files, execute OCR text extraction on scanned pages, extract document structure (headings, steps, tables, warnings) into schema-conforming JSON, and rasterize high-contrast, readable vector diagram textures ($1200 \times 400\text{ px}$).
+   - **Tier 3 — Spectacles AR Delivery:** The Lens queries lightweight metadata and structured text snippets via `InternetModule.fetch()`, streams pre-rendered page textures on-demand via `RemoteMediaModule.loadResourceAsImageTexture()`, and manages active texture memory through an LRU cache.
+2. **Contextual Source Citations:** Guided procedure steps link directly to exact manual pages, diagrams, and section headings in the embedded Source drawer.
+3. **Manual-Grounded Q&A (Roadmap):** Learner questions are answered strictly from preprocessed manual text with explicit page citations, preventing generative hallucinations.
 4. **Safety Boundary:** Manual-derived content is strictly advisory and reference-only; it must **never** automatically become an executable procedure or safety gate without human validation against `scripts/validate_procedure.py`.
-5. **Interim Evaluation Option (Alternative 3):** For the initial Preview MVP, pre-bundled static reference page textures are retained as an interim evaluation option for supported devices, without replacing Route D.
+5. **Active Competition Build:** The current build executes entirely on offline, machine-verified procedural JSON contracts in `data/procedures/` asserting schema compliance via `validate_procedure.py`.
 
 ---
 
@@ -83,7 +83,7 @@ To bridge physical tasks with authoritative technical documentation, FixWhat? AR
     - *Splice geometry:* 3 tight helical wraps for Western Union mechanical splice (NASA-STD-8739.4A §19.7.1).
     - *Workmanship inspection:* Smooth, concave solder wetting fillet criteria (NASA-STD-8739.3 §13.6).
     - *Heat-shrink insulation overlap:* The 6.35 mm (0.25 in) overlap guideline is explicitly attributed to Step 9 of the approved wire-joining procedure (`data/procedures/wire_soldering_splice.json`), which establishes this dimensional benchmark to operationalize the NASA-STD-8739.4A §19.2.6 requirement that insulation tubing extend at least two times (2X) the largest wire diameter over the original insulation.
-    - *Scope & applicability qualification:* These criteria are technical parameters scoped strictly to this particular 20–24 AWG mock wire procedure. They are NOT presented as universal beginner rules, nor do they constitute or imply NASA certification, approval, or flight hardware compliance.
+    - *Scope & applicability qualification:* These criteria are technical parameters scoped strictly to this particular 20–24 AWG mock wire procedure. They are NOT presented as universal beginner rules, nor do they constitute or imply NASA certification, approval, or flight hardware compliance. The application does not physically measure electrical continuity, wire tensile strength, temperature, or solder-joint quality.
     - *Environmental guideline:* Adequate ventilation to control rosin flux vapors is referenced from general safety guidance (Weller p. 14; NASA-STD-8739.3 §4.2), without prescribing a specific mechanical arrangement.
   - **Level 3 — Project Interaction & Presentation Decisions:** Interaction and layout choices adopted for FixWhat? AR in Preview: the two-stage onboarding flow, SIK pinch controls, world-anchored panel placement, directional edge indicator, "Bring Mentor Back" recovery action, simulated recognition stand-in, and expandable "Why?" pedagogical explanations.
   - *Verification note:* Document editions, section headings, and page citations are recorded as inspected by Antigravity from repository fixtures, not independently verified by the user/product owner.
@@ -95,9 +95,12 @@ To bridge physical tasks with authoritative technical documentation, FixWhat? AR
 - Warning behavior: Before acknowledgment, a prominent warning blocks progression; after the learner selects "I Confirm", it collapses into a compact persistent reminder ("Heat safety — remain aware") in the mentor panel.
 - Strict boundary: Unsupported details must not become authoritative instructions. No sensor measurement of temperature or electrical current is claimed or implied.
 
-### 2. Consumer Remote Track (GE/Jasco 33709 / 33711)
+### 2. Consumer Remote Track (GE/Jasco 33709 Supported; GE/Jasco 33711 Unsupported)
 - Traceable source document & verification scope:
   - *GE 4-Device Universal Remote Instruction Manual & Code List (Models 33709 & 33711)*, Jasco Products Company LLC, Document Code `33709_33711_Manual_Rev_11-19`. (Recorded as inspected by Antigravity from repository fixtures, not independently verified by the user/product owner).
+- Supported vs. Unsupported Scope:
+  - **GE 33709 (Supported MVP):** 9-step guided walkthrough covering battery polarity insertion, master device setup, and automated code search.
+  - **GE 33711 (Guarded in UI):** Selecting the 33711 displays the defensive `View_UnsupportedModel` modal informing the learner that Designer Series hardware is unsupported in this release.
 - Distinct levels of authority:
   - **Level 1 — Manufacturer Manual Requirements (Jasco Manual §1):**
     - Battery compartment & latch handling (p. 2, Fig. 1): Pull down on textured indent to slide cover downward, push upward to lock; avoid prying or forcing latch mechanisms.
@@ -117,12 +120,12 @@ To bridge physical tasks with authoritative technical documentation, FixWhat? AR
 ---
 
 ## Done criteria
-Each one can be checked in Lens Studio's preview using keyboard movement and mouse clicks.
+Each one can be checked in Lens Studio's preview using keyboard movement and mouse clicks. All 5 criteria are verified in Preview simulation and backed by 8 automated LEAF test scenarios.
 1. Complete the two-stage onboarding: Tester launches Lens, selects Wire Joining Workshop from the welcome screen, clicks "Place Workbench / Find Object", sees the workbench and "Workbench ready — simulated recognition" notification, and can use "Back" to return to task selection.
 2. Navigate a complete workshop lesson: Tester uses Previous, Next, Why?, Pause/Resume, and Overview to advance through the soldering exercise stages, expand explanations, pause without losing their place, and reach a lesson completion screen.
 3. Verify that safety checkpoints block progression: Tester encounters a safety gate (confirming wires are non-energized), attempts to click Next and verifies progression is blocked, clicks "I Confirm", verifies Next unlocks, and observes the warning collapse into a docked reminder.
 4. Test spatial stability and panel recovery: Tester moves around the room using WASD/mouse look to verify the panel remains world-anchored; looks away and verifies the subtle directional arrow appears; activates "Bring Mentor Back" and verifies the panel repositions in front of gaze and re-anchors.
-5. Complete the Universal Remote experience: Tester selects Universal Remote, activates simulated identification, steps through GE/Jasco remote controls, battery placement and polarity, and model setup, with pre-authored manual citations, reaching completion without false claims of live device pairing.
+5. Complete the Universal Remote experience: Tester selects Universal Remote, activates simulated identification, steps through GE/Jasco 33709 remote control setup, battery placement and polarity, and model code entry, with pre-authored manual citations, reaching completion without false claims of live device pairing. Attempting to select 33711 displays the unsupported model warning notice.
 
 ## Out of scope
 - Native PDF parsing, file managers, or on-device OCR on Spectacles hardware (Route D utilizes cloud preprocessing).
@@ -131,7 +134,7 @@ Each one can be checked in Lens Studio's preview using keyboard movement and mou
 - Runtime-generated or LLM-hallucinated repair steps (all procedures are pre-authored from source manuals).
 - Mains electricity (110V/220V), household plumbing, automotive systems, or structural repairs.
 - Two-hand custom gestures or live camera streaming across network.
-- Validation on physical Spectacles (2024) hardware (development and testing are strictly Preview simulation).
+- Validation on physical Spectacles (2024) hardware (development and testing are strictly Preview simulation; physical hardware validation remains NOT VERIFIED).
 
 ## Risks and open questions
 - Real glasses vs. Preview: True long-term ergonomic comfort of the downward gaze angle and hand-tracking precision during delicate wire holding can only be validated on physical Spectacles hardware.

@@ -11,6 +11,55 @@ This project adheres to strict evidence-based milestone tracking.
 
 ---
 
+## [1.0.1] - 2026-11-09 (Milestone FW-08: Submission Patch v1.0.1 & Devpost Readiness)
+### Completed by Principal Software Architect & Technical Lead with CLAD
+- **Phase A (MIT License Implementation):**
+  - Created root `LICENSE` containing canonical MIT License text with copyright `2026 FixWhat? Contributors` per explicit Product Owner approval.
+  - Resolved broken license badge and documentation links across the repository.
+- **Phase B (Third-Party Notices & Attribution):**
+  - Created `THIRD_PARTY_NOTICES.md` documenting verified third-party licenses and terms:
+    - Google Material Design Icons (Apache License 2.0 full text and notice).
+    - Snap Inc. Developer Frameworks (SIK 2.0, UIKit 2.0, LEAF 1.0 under Snap Developer Terms).
+    - Educational reference citations and prominent non-endorsement disclaimers for NASA-STD-8739.4A, Weller Tools GmbH, and Jasco Products / GE.
+    - Original 20 technical vector guidance diagrams under MIT License.
+- **Phase C (Devpost Design Brief Claim Reconciliation):**
+  - Reconciled `devpost/design-brief.md` against CLAD forensic audit table:
+    - Scoped Consumer MVP strictly to GE 33709; documented GE 33711 as unsupported and actively guarded via `View_UnsupportedModel`.
+    - Clarified code entry walkthrough vs television IR pairing telemetry.
+    - Classified object recognition and workbench placement as spatial proxy simulations.
+    - Documented Route D as an approved architectural blueprint with active runtime running on local schema contracts.
+    - Disclaimed physical action tracking, continuity measurement, and physical hardware validation (100% verified in Preview).
+- **Phase D (README Alignment):**
+  - Updated `README.md` to reflect the actual modular production directory structure (`UI/`, `Data/`, `Types/`, `Tests/`, `data/procedures/`).
+  - Corrected Lens Studio engine build identifier to `5.24.1.26100516`.
+  - Standardized repository directory casing to `Fixwhat-AR`.
+  - Linked `LICENSE` and `THIRD_PARTY_NOTICES.md`.
+- **Phase E (Devpost Submission Content Preparation):**
+  - Created `devpost/submission-text.md` containing complete Devpost hackathon form copy and an authoritative 2-minute Preview demo video script.
+- **Phase F & G (Pre-Publication Verification & Staging):**
+  - Verified 19/19 schema checks passing in `scripts/validate_procedure.py`.
+  - Confirmed `AGENTS.md` 100% byte-for-byte identical to baseline.
+  - Staged exact patch files under authorized identity `kanku57 <41878724+kanku57@users.noreply.github.com>`.
+
+
+---
+
+## [1.0.0] - 2026-11-09 (Milestone FW-06: Option B — Clean Initial Public GitHub Publication)
+### Completed by Principal Software Architect & Technical Lead with CLAD
+- **Option B Authorized Execution:**
+  - Preserved original 5-commit local developmental history on local branch `archive/local-history` pointing to commit `49bdd7a`.
+  - Created clean orphan release branch named `main` with 0 parents and 0 inherited historical commits.
+  - Reconciled manifest discrepancy between 121 and 135 files: CLAD issued formal clearance for curated 122-file allowlist in `docs/FW-06_FINAL_APPROVED_PUBLICATION_MANIFEST.md` (pruned internal scratchpad memos and excluded corrupted pre-cleanup scene backup).
+  - Executed deterministic staging of exact 122 approved files via `scripts/stage_option_b.py`.
+  - Created single initial public release commit `bc63c62a0d017b01edaa832273a3f33e77aaa473` under authorized identity `kanku57 <41878724+kanku57@users.noreply.github.com>`.
+  - Configured remote `origin` to `https://github.com/kanku57/Fixwhat-AR.git`.
+  - Configured `http.postBuffer 524288000` (500 MB) and pushed `main` to `origin/main` via normal push.
+  - Verified remote repository via `git ls-remote`: `main` and `HEAD` resolve to `bc63c62` with zero historical leaks.
+  - Authored 5 mandated FW-06 deliverables in `docs/`.
+
+
+---
+
 ## [0.18.4] - 2026-11-09 (Milestone FW-05E: Live Lens Studio Runtime Revalidation)
 ### Completed by Principal Software Architect & Technical Lead with CLAD
 - **Phase A (Host & Project Reconnection):**
